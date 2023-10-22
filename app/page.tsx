@@ -1,40 +1,31 @@
 'use client';
-import { Avatar, Button, IconButton, Image, Text } from '@chakra-ui/react';
-import { useRouter } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { IoMailOpen } from 'react-icons/io5';
-import { AiFillHeart } from 'react-icons/ai';
 
 // import Time from './components/Time';
 
 import dynamic from 'next/dynamic';
 const Time = dynamic(() => import('./components/Time'), { ssr: false });
-
-import Gallery from './components/Gallery';
-import GiftAndReservasi from './components/GiftAndReservasi';
+import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 import Closing from './components/Closing';
 import Cover from './components/Cover';
+import Gallery from './components/Gallery';
+import GiftAndReservasi from './components/GiftAndReservasi';
 import Intro from './components/Intro';
-import Quran from './components/Quran';
 import Profile from './components/Profile';
+import Quran from './components/Quran';
 import Story from './components/Story';
-import { wrapper } from './animation/animation';
-import { BsFileEarmarkPlay, BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 export default function Home() {
   const [isPlaying, setIsPlaying] = React.useState(false);
-
-  const audioUrl = '/assets/web/lagu.mp4'; // Replace this with the URL of your audio file
-
-  const audioRef = React.useRef<HTMLAudioElement>(new Audio(audioUrl));
+  const audioRef = React.useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
     const audio = audioRef.current;
     if (isPlaying) {
-      audio.pause();
+      audio?.pause();
     } else {
-      audio.play().catch((error: any) => {
+      audio?.play().catch((error: any) => {
         // Handle any errors that occurred while trying to play the audio
         console.error('Play failed:', error);
       });
@@ -47,19 +38,21 @@ export default function Home() {
     setIsVisible(false);
     togglePlay();
   };
-  // const router = useRouter();
-  // const query = router.query;
-  // const untuk = query.untuk as string;
+
   return (
     <main
       className={`font-josefin text-black bg-[#FFFFFF] w-full  overflow-hidden ${
         isVisible ? 'overflow-hidden max-h-screen' : 'overflow-auto'
       }`}
     >
+      <audio className="hidden" ref={audioRef} controls>
+        <source src="/assets/web/lagu.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
       {!isVisible && (
         <div
           onClick={togglePlay}
-          className="w-10 h-10 hover:bg-black right-5 bottom-5 fixed bg-black text-white z-30 flex items-center justify-center text-2xl rounded-full"
+          className="w-10 h-10 cursor-pointer hover:bg-black right-5 bottom-5 fixed bg-black text-white z-30 flex items-center justify-center text-2xl rounded-full"
         >
           {isPlaying ? <BsPauseFill /> : <BsFillPlayFill />}
         </div>
