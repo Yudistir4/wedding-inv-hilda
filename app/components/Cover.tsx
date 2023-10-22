@@ -39,16 +39,17 @@ const Cover: React.FunctionComponent<ICoverProps> = ({
             src="/assets/web/X-WEB.webp"
           />
           <Image
-            className="w-full object-cover object-bottom h-[65vh]"
+            className="w-full object-cover object-bottom h-[60vh]"
             alt="cover"
             src="/assets/prewed/img9.webp"
           />
-          <div className="text-lg bg-gradient-to-t flex flex-col items-center justify-center gap-4   from-[#9E785E] from-70% w-full h-[50vh] absolute left-0 bottom-0">
-            <h2 className="mt-20">The Wedding of</h2>
-            <h1 className="font-brittany text-5xl my-4">{setting.sebutan}</h1>
+          <div className="text-lg bg-gradient-to-t flex flex-col items-center justify-center gap-1   from-[#9E785E] from-70% w-full h-[60vh] absolute left-0 bottom-0">
+            <h2 className="mt-10">The Wedding of</h2>
+            <h1 className="font-brittany text-4xl my-4">{setting.sebutan}</h1>
             <p>Dear</p>
             <p>{tamu ? tamu : 'Tamu Undangan'}</p>
             <Button
+              size="sm"
               variant="solid"
               borderRadius="full"
               leftIcon={<IoMailOpen className="text-xl" />}
