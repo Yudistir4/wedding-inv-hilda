@@ -14,8 +14,8 @@ const brittany = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Hilda and Iqbal',
-  description: 'Wedding Invitation Hilda and Iqbal',
+  title: 'The Wedding Of Hilda & Iqbal',
+  description: 'Minggu, 12 Oktober 2023',
 };
 
 // app/layout.tsx
