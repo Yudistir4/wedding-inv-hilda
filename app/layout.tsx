@@ -14,8 +14,8 @@ const brittany = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Wedding Invitation',
-  description: 'Hilda and..',
+  title: 'Hilda and Iqbal',
+  description: 'Wedding Invitation Hilda and Iqbal',
 };
 
 // app/layout.tsx
