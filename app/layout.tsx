@@ -15,7 +15,7 @@ const brittany = localFont({
 
 export const metadata: Metadata = {
   title: 'The Wedding Of Hilda & Iqbal',
-  description: 'Minggu, 12 Oktober 2023',
+  description: 'Minggu, 12 November 2023',
 };
 
 // app/layout.tsx
