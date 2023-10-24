@@ -102,7 +102,6 @@ const Gallery: React.FunctionComponent<IGalleryProps> = (props) => {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          ÷
           <ModalCloseButton />
           <ModalBody>
             <Image
