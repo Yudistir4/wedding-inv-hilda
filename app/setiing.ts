@@ -15,13 +15,13 @@ export const setting = {
     akad: {
       tgl: 'Minggu, 12 November 2023',
       tempat: 'Jl. A3 Sumur Batu No.27B',
-      waktu: '11.00 - Selesai',
+      waktu: '10.00 - Selesai',
       maps: 'https://maps.google.com/maps?q=-6.159947395324707,106.86573028564453&z=17&hl=id',
     },
     resepsi: {
       tgl: 'Minggu, 12 November 2023',
       tempat: 'Jl. A3 Sumur Batu No.27B',
-      waktu: '11.00 - 18.00',
+      waktu: '11.00 - 17.00',
       maps: 'https://maps.google.com/maps?q=-6.159947395324707,106.86573028564453&z=17&hl=id',
     },
   },
