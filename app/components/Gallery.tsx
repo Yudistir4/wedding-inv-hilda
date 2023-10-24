@@ -1,4 +1,15 @@
-import { Image } from '@chakra-ui/react';
+import {
+  Button,
+  Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from '@chakra-ui/react';
 import * as React from 'react';
 import { children, wrapper } from '../animation/animation';
 import { motion } from 'framer-motion';
@@ -6,6 +17,13 @@ import { motion } from 'framer-motion';
 interface IGalleryProps {}
 
 const Gallery: React.FunctionComponent<IGalleryProps> = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedImage, setSelectedImage] = React.useState<string>('');
+
+  const openImage = (src: string) => {
+    setSelectedImage(src);
+    onOpen();
+  };
   return (
     <motion.div
       variants={wrapper}
@@ -40,39 +58,64 @@ const Gallery: React.FunctionComponent<IGalleryProps> = (props) => {
         <Image
           alt="gallery"
           src="/assets/prewed/img10.webp"
-          className="hover:scale- object-cover rounded-xl col-span-4 aspect-video"
+          onClick={() => openImage('/assets/prewed/img10.webp')}
+          className="cursor-pointer hover:scale- object-cover rounded-xl col-span-4 aspect-video"
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img3.webp"
-          className="object-cover rounded-xl col-span-2 h-full"
+          onClick={() => openImage('/assets/prewed/img3.webp')}
+          className="cursor-pointer object-cover rounded-xl col-span-2 aspect-[10/7.2]"
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img14.webp"
-          className="object-cover rounded-xl"
+          onClick={() => openImage('/assets/prewed/img14.webp')}
+          className="cursor-pointer object-cover rounded-xl"
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img15.webp"
-          className="object-cover rounded-xl"
+          onClick={() => openImage('/assets/prewed/img15.webp')}
+          className="cursor-pointer object-cover rounded-xl"
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img6.webp"
-          className="object-cover rounded-xl"
+          onClick={() => openImage('/assets/prewed/img6.webp')}
+          className="cursor-pointer object-cover rounded-xl"
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img7.webp"
-          className="object-cover rounded-xl h-full"
+          onClick={() => openImage('/assets/prewed/img7.webp')}
+          className="cursor-pointer object-cover rounded-xl "
         />
         <Image
           alt="gallery"
           src="/assets/prewed/img11.webp"
-          className="object-cover rounded-xl col-span-2  h-full"
+          onClick={() => openImage('/assets/prewed/img11.webp')}
+          className="cursor-pointer object-cover rounded-xl col-span-2   aspect-[10/7.2]"
         />
       </motion.div>
+
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          ÷
+          <ModalCloseButton />
+          <ModalBody>
+            <Image
+              alt="gallery"
+              src={selectedImage}
+              className="object-cover rounded-xl "
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </motion.div>
   );
 };
